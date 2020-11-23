@@ -3,6 +3,9 @@
 # Copyright SpyceTek Inc. or its affiliates. All Rights Reserved.
 #==============================================================================
 
+# Make sure this script is run by root or with sudo
+if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
+
 yum install -y php-apcu
 
 #mkdir -P /var/log/php-fpm
