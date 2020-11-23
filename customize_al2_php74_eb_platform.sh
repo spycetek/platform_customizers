@@ -8,11 +8,6 @@ if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 
 yum install -y php-apcu
 
-#mkdir -P /var/log/php-fpm
-
-# Change socket path to one that we have been using for October projects.
-sed -i -E 's#^listen *=.*/www.sock$#listen = /var/run/php-fpm/www.sock#' /etc/php-fpm.d/www.conf;
-
 # Update composer
 composer.phar selfupdate
 
